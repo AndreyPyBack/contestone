@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link id="theme" rel="stylesheet" href="{% static 'css/styles-dark.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">IT Contest</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+              
+                <a class="nav-item nav-link " href="{% url 'blog-home' %}">Главная</a>
+              </li>
+                <a class="nav-item nav-link " href="{% url 'task_list' %}">Задачи</a>
+                <a class="nav-item nav-link " href="{% url 'task_create' %}">Создать задание</a>
+                
+              
+                <a class="nav-item nav-link " href="{% url 'guestbook' %}">Гостевая</a>
+                <a class="nav-item nav-link " href="{% url 'coments' %}">Коменты</a>
+              
+              <a class="nav-item nav-link" href="{% url 'interpreter' %}">Интерпретатор</a>
+              <li class="nav-item">
+                    <button class="btn btn-link nav-link" onclick="toggleTheme()">Switch Theme</button>
+                </li>
+                </ul>
+            </div>
+            <!-- Правая часть навигационной панели -->
+            <div class="navbar-nav">
+              {% if user.is_authenticated %}
+              <a class="nav-item nav-link" href="{% url 'profile' %}">{{ user.username }}</a>
+              <a class="nav-item nav-link" href="{% url 'logout' %}">Выход</a>
+              {% else %}
+              <a class="nav-item nav-link" href="{% url 'login' %}">Вход</a>
+              <a class="nav-item nav-link" href="{% url 'register' %}">Регистрация</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% if messages %}
+        	{% for message in messages %}
+          	<div class="alert alert-{{ message.tags }}">
+            	{{ message }}
+          	</div>
+        	{% endfor %}
+{% endif %}
+          {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Разделы</h3>
+            <p class='text-muted'>новости и события
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Новые записи</li>
+                <li class="list-group-item list-group-item-light">Объявления</li>
+                <li class="list-group-item list-group-item-light">Соревнования</li>
+                <li class="list-group-item list-group-item-light">Встречи участников</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <!-- Футер закреплен внизу, независимо от количества постов на странице -->
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleTheme() {
+            var theme = document.getElementById("theme");
+            if (theme.getAttribute("href") === "{% static 'css/styles-light.css' %}") {
+                theme.setAttribute("href", "{% static 'css/styles-dark.css' %}");
+            } else {
+                theme.setAttribute("href", "{% static 'css/styles-light.css' %}");
+            }
+        }
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+<footer>
+  <p><a href="{% url 'blog-home' %}">© ITcontestKG 2023</a></p>
+</footer>
+</html>

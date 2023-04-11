@@ -1,0 +1,87 @@
+/* Body Styles */
+body {
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #ffffff;
+    color: #333;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  }
+  .form-group {
+    margin-bottom: 5px;
+    border: 1px solid rgb(32, 32, 28);
+    border-radius:  5px;
+  }
+  /* Navigation Styles */
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .navbar-nav {
+    flex-wrap: nowrap;
+  }
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar-brand{
+    margin-left: 2em;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin: 0px 10px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* Button Styles */
+  .btn {
+    background-color: #0a67a3;
+    color: rgb(236, 227, 227);
+    border: 2px solid #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Footer Styles */
+  footer {
+    position:absolute;
+    padding-top: 1em;
+    background-color: rgb(27, 27, 27);
+    height: 7vh;
+    width: 100%;
+    margin-top: 60vh;
+    text-align: center;
+    
+  }
+  
+  .theme-switch {
+    color: #3f2b00;
+    background-color: #5f3e1c;
+  }
+  
+  .theme-switch:hover {
+    color: #c76707;
+  }
+  
