@@ -19,7 +19,8 @@ class User(AbstractUser):
         self.slug = slugify(self.username)
         if self.choice == '3':
             # assign permission to manage users
-            self.is_staff = True            
+            self.is_staff = True 
+            self.is_superuser = True           
            
         super().save(*args, **kwargs)
         

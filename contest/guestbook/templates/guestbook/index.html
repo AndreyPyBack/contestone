@@ -1,12 +1,15 @@
 {% extends "main/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
+
 <form method="post" action="">
 {% csrf_token %}
-<input type="text" name="user_name"><br>
-<textarea id="story" name="user_text" rows="5" cols="33"></textarea>
-<input type="month" name="month">
-<input type="submit" value="Отправить" name="enter">
+
+{{ form|crispy }}
+
+<input type="submit" class="btn btn-primary" value="Отправить" name="enter">
 </form>
+
     {% if posts %}
     {% for post in posts %}
         <article class="media content-section">

@@ -105,13 +105,18 @@ body {
   .theme-switch:hover {
     color: #5f3e1c;
   }
-  footer {
-    position:absolute;
+  footer {   
+    position: fixed; 
     padding-top: 1em;
-    background-color: rgb(27, 27, 27);
-    height: 7vh;
-    width: 100%;
-    margin-top: 60vh;
+    background-color: rgb(27, 27, 27);    
+    left: 0;
+    bottom: 0;  
+    width: 100%; 
     text-align: center;
     
+  }
+  .home{
+    
+    margin-top: 20vh;
+    text-align: center;
   }

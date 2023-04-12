@@ -10,8 +10,7 @@ from datetime import datetime, timedelta
 
 default_date = datetime.now() - timedelta(days=365 * 18)
 
-class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField()
+class UserRegisterForm(UserCreationForm):    
     date = forms.DateField(widget=SelectDateWidget( attrs={'class': 'my-widget-class'}, years=range(timezone.now().year - 100, timezone.now().year + 1)),
                                  label='Дата рождения', initial=default_date)
     users = (('1','Студент'), ('2','Преподаватель'), ('3','Администратор'))
@@ -19,7 +18,7 @@ class UserRegisterForm(UserCreationForm):
     
     class Meta:
         model = User                
-        fields = ['username', 'email', 'password1', 'password2', 'date', 'choice']
+        fields = ['username', 'password1', 'password2', 'date', 'choice']
         
 
 class UserProfileForm(forms.ModelForm):

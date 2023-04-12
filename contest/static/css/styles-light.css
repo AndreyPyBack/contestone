@@ -13,7 +13,7 @@ body {
   }
   .form-group {
     margin-bottom: 5px;
-    border: 1px solid rgb(32, 32, 28);
+    border: 1px solid rgb(71, 71, 59);
     border-radius:  5px;
   }
   /* Navigation Styles */
@@ -65,17 +65,21 @@ body {
   }
   
   /* Footer Styles */
-  footer {
-    position:absolute;
+  footer {   
+    position: fixed; 
     padding-top: 1em;
-    background-color: rgb(27, 27, 27);
-    height: 7vh;
-    width: 100%;
-    margin-top: 60vh;
+    background-color: rgb(27, 27, 27);    
+    left: 0;
+    bottom: 0;  
+    width: 100%; 
     text-align: center;
     
   }
-  
+  .home{
+    
+    margin-top: 20vh;
+    text-align: center;
+  }
   .theme-switch {
     color: #3f2b00;
     background-color: #5f3e1c;
