@@ -1,1 +1,1 @@
-web: gunicorn htest.wsgi --log-file -
+web: gunicorn contest.wsgi --log-file -
